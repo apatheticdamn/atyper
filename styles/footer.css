@@ -1,0 +1,8 @@
+.horizontal-line {
+  border-width: 0.1rem;
+  border-color: var(--clr-slate600);
+}
+
+.footer-section {
+  padding: 0 0 3rem 0;
+}
