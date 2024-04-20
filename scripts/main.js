@@ -51,6 +51,8 @@ const endTypingTest = () => {
     textArea.value = "";
 };
 
+
+
 const startTyping = async () => {
   const quote = await fetchQuote();
   const words = quote.split(' ');
@@ -125,38 +127,36 @@ btn.addEventListener('click', () => {
 });
 
 textArea.addEventListener('input', () => {
-    if (typingStarted) {
-        const userTypedWords = textArea.value.trim().split(/\s+/);
-        const displayedWords = showQuote.querySelectorAll('span');
+    const userTypedWords = textArea.value.trim().split(/\s+/);
+    const displayedWords = showQuote.querySelectorAll('span');
+    
+    let correctWordsCount = 0;
 
-        let correctWordsCount = 0;
-
-        for (let i = 0; i < userTypedWords.length; i++) {
-            if (userTypedWords[i] === displayedWords[i].innerText) {
-                correctWordsCount++;
-            }
+    for (let i = 0; i < userTypedWords.length; i++) {
+        if (userTypedWords[i] === displayedWords[i].innerText) {
+            correctWordsCount++;
         }
-
-        const accuracy = (correctWordsCount / userTypedWords.length) * 100;
-        const timeTaken = (Date.now() - startTime) / 1000;
-        const typingSpeed = (correctWordsCount / timeTaken) * 60;
-
-        score.innerHTML = `Speed: <span style="color: #bb0a1e;">${Math.round(typingSpeed)}</span> WPM<br>
-                           Words: <span style="color: #bb0a1e;">${correctWordsCount}</span> words<br>
-                           Accuracy: <span style="color: #bb0a1e;">${accuracy.toFixed(2)}%</span><br>
-                           Time: <span style="color: #bb0a1e;">${Math.round(timeTaken)}</span> seconds`;
     }
+
+    const accuracy = (correctWordsCount / displayedWords.length) * 100;
+    const timeTaken = (Date.now() - startTime) / 1000;
+    const typingSpeed = (correctWordsCount / timeTaken) * 60;
+
+    score.innerHTML = `Speed: <span style="color: #bb0a1e;">${Math.round(typingSpeed)}</span> WPM<br>
+                       Words: <span style="color: #bb0a1e;">${correctWordsCount}</span> words<br>
+                       Accuracy: <span style="color: #bb0a1e;">${accuracy.toFixed(2)}%</span><br>
+                       Time: <span style="color: #bb0a1e;">${Math.round(timeTaken)}</span> seconds`;
 });
 
 textArea.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
-        event.preventDefault();
-        if (typingStarted && btn.innerText.toLowerCase() === "done") {
-            btn.click();
+        if (btn.innerText.toLowerCase() === "start") {
+            startTyping();
+        } else if (btn.innerText.toLowerCase() === "done") {
+            endTypingTest();
         }
     }
 });
-
 
 
 textArea.setAttribute('disabled', 'true');
