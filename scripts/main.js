@@ -52,18 +52,25 @@ const endTypingTest = () => {
 };
 
 const startTyping = async () => {
-    const quote = await fetchQuote();
-    const words = quote.split(' ');
+  const quote = await fetchQuote();
+  const words = quote.split(' ');
 
-    showQuote.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
+  showQuote.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
 
-    const date = new Date();
-    startTime = date.getTime();
+  btn.innerText = "Done";
+  textArea.removeAttribute('disabled');
+  textArea.focus();
 
-    btn.innerText = "Done";
-    textArea.removeAttribute('disabled');
-    textArea.focus();
+  textArea.addEventListener('input', startTimer);
 };
+
+const startTimer = () => {
+  const date = new Date();
+  startTime = date.getTime();
+  
+  textArea.removeEventListener('input', startTimer);
+};
+
 
 btn.addEventListener('click', () => {
     switch (btn.innerText.toLowerCase()) {
@@ -81,23 +88,75 @@ textArea.addEventListener('input', () => {
   const userTypedWords = textArea.value.trim().split(/\s+/);
   const displayedWords = showQuote.querySelectorAll('span');
   
+  let correctWordsCount = 0;
+
   displayedWords.forEach((span, index) => {
       if (userTypedWords[index] === span.innerText) {
           span.style.color = '#bb0a1e';
-          span.style.fontWeight = 'bold'; // Make typed words bold
+          correctWordsCount++;
       } else {
-          span.style.color = '';
-          span.style.fontWeight = 'normal'; // Reset font weight for other words
+          span.style.color = 'white'; 
       }
   });
+
+  const timeTaken = (Date.now() - startTime) / 1000;
+  const accuracy = (correctWordsCount / userTypedWords.length) * 100;
+  const typingSpeed = (correctWordsCount / timeTaken) * 60;
+
+  score.innerHTML = `Speed: <span style="color: #bb0a1e;">${Math.round(typingSpeed)}</span> WPM<br>
+                     Words: <span style="color: #bb0a1e;">${correctWordsCount}</span> words<br>
+                     Accuracy: <span style="color: #bb0a1e;">${accuracy.toFixed(2)}%</span><br>
+                     Time: <span style="color: #bb0a1e;">${Math.round(timeTaken)}</span> seconds`;
 });
 
-textArea.addEventListener('keypress', (event) => {
+let typingStarted = false;
+
+btn.addEventListener('click', () => {
+    switch (btn.innerText.toLowerCase()) {
+        case "start":
+            startTyping();
+            typingStarted = true; 
+            break;
+
+        case "done":
+            endTypingTest();
+            break;
+    }
+});
+
+textArea.addEventListener('input', () => {
+    if (typingStarted) {
+        const userTypedWords = textArea.value.trim().split(/\s+/);
+        const displayedWords = showQuote.querySelectorAll('span');
+
+        let correctWordsCount = 0;
+
+        for (let i = 0; i < userTypedWords.length; i++) {
+            if (userTypedWords[i] === displayedWords[i].innerText) {
+                correctWordsCount++;
+            }
+        }
+
+        const accuracy = (correctWordsCount / userTypedWords.length) * 100;
+        const timeTaken = (Date.now() - startTime) / 1000;
+        const typingSpeed = (correctWordsCount / timeTaken) * 60;
+
+        score.innerHTML = `Speed: <span style="color: #bb0a1e;">${Math.round(typingSpeed)}</span> WPM<br>
+                           Words: <span style="color: #bb0a1e;">${correctWordsCount}</span> words<br>
+                           Accuracy: <span style="color: #bb0a1e;">${accuracy.toFixed(2)}%</span><br>
+                           Time: <span style="color: #bb0a1e;">${Math.round(timeTaken)}</span> seconds`;
+    }
+});
+
+textArea.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
-        if (btn.innerText.toLowerCase() === "done") {
+        event.preventDefault();
+        if (typingStarted && btn.innerText.toLowerCase() === "done") {
             btn.click();
         }
     }
 });
+
+
 
 textArea.setAttribute('disabled', 'true');
