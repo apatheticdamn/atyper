@@ -3,6 +3,70 @@
   border-color: var(--clr-slate600);
 }
 
+
 .footer-section {
-  padding: 0 0 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 30px 0;
+  margin: 0 auto;
+}
+
+.footer-section__instagram-link,
+.footer-section__discord-link {
+  width: 19px;
+  cursor: pointer;
+  border-radius: 10px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-section__spotify-link,
+.footer-section__github-link {
+  width: 19px;
+  cursor: pointer;
+  border-radius: 15px;
+  filter: brightness(0) invert(1);
+}
+
+.footer-section__links-div {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.footer-section__links-div:hover {
+  background-color: rgb(37, 37, 37);
+}
+
+.footer-section__link {
+  width: 54px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.4s;
+  cursor: default;
+}
+
+.footer-section__link:hover .footer-section__link-text {
+  color: var(--clr-blood-red);
+}
+
+.footer-section__link-text {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial;
+  padding-top: 3px;
+  font-size: 11px;
+  color: var(--clr-slate600);
+  margin-top: 2px;
+  transition: color 0.4s;
 }
