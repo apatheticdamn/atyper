@@ -1,13 +1,56 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="public/icons/atyper-logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--Fonts-->
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <!--Styles-->
+  <link rel="stylesheet" href="styles/general.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/footer.css">
+  <title>
+    ATyper
+  </title>
+</head>
+
+<body>
+  <div class="main-heading">
+    ATyper
+  </div>
+  <main class="main-section">
+    <div class="main-section__main-div">
+
+      <div class="dummy-text-container">
+        <div class="dummy-text-container__dummy-text">
+          <p id="show-quote">Click on the <span style="color: #bb0a1e; font-weight: 500;">Start</span> button to start the Typing test.
+          </p>
+        </div>
+      </div>
+      <textarea type="text" placeholder="Type the text here" class="input-text-box" id="text-area"></textarea>
+
+      <button id="btn" class="btn">Start</button> 
+    </div>
+    <p id="score"></p>
+  </main>
+
+  <hr class="horizontal-line">
+  <footer class="footer-section">
+    <a href="https://github.com/apatheticdamn"></a>
+    <a href=""></a>
+    <a href=""></a>
+  </footer>
+  <script type="module" src="scripts/main.js"></script>
+</body>
+
 </html>
