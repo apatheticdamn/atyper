@@ -1,44 +1,22 @@
-# Welcome to ATyper!
+# ATyper
 
-ATyper is a simple yet effective typing website project designed to improve your typing speed and accuracy. With just a text box, a start button, and a done button, it offers a distraction-free environment for honing your typing skills.
-
-## Getting Started
-
-To get started with ATyper, simply follow these steps:
-
-1. Clone the repository to your local machine.
-2. Open the `index.html` file in your web browser.
-3. Random texts will appear for you to type.
-4. Click the "Start" button to begin typing.
-5. Type the text displayed in the text box as accurately and quickly as possible.
-6. Once you're done, click the "Done" button to stop the typing session.
-7. Your words per minute (WPM) will be calculated and displayed on the screen.
+ATyper is a simple web-based typing test application where users can practice their typing skills by typing out provided quotes.
 
 ## Features
 
-- **Random Text Generation:** ATyper generates random texts for you to type, ensuring each session is unique.
-- **WPM Calculation:** Your typing speed is measured in words per minute (WPM) and displayed on the screen after each session.
-- **Simple Interface:** With only a text box and two buttons, ATyper provides a minimalist interface focused on the typing experience.
+- **Real-time Typing Test**: Start typing and see your typing speed (in words per minute), accuracy, and time taken in real-time.
+- **Random Quotes**: Each typing session presents a random quote fetched from the Quotable API.
+- **User-Friendly Interface**: Clean and intuitive interface for a seamless typing experience.
 
-## Technologies Used
+## Preview
 
-ATyper is built using the following technologies:
+![ATyper Preview](public/previews/preview.png)
 
-- HTML
-- CSS
-- JavaScript
+## Getting Started
 
-## Contributing
+To get started with ATyper, simply clone this repository to your local machine and open the `index.html` file in your web browser.
 
-Contributions are welcome! If you have any suggestions, feature requests, or bug reports, please feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements
-
-- Special thanks to all contributors and supporters of ATyper.
-- Inspired by a passion for typing and continuous learning.
-
-Thank you for using ATyper to enhance your typing skills! Happy typing! 🚀
+```bash
+git clone <repository-url>
+cd ATyper
+```
