@@ -23,6 +23,9 @@
   max-width: 40rem;
   height: auto;
   padding: 0 2rem 0 2rem;
+  border-width: 1rem;
+  border-style: solid;
+  
 }
 
 .dummy-text-container__dummy-text {
