@@ -18,5 +18,5 @@ To get started with ATyper, simply clone this repository to your local machine a
 
 ```bash
 git clone https://github.com/apatheticdamn/atyper.git
-cd ATyper
+cd atyper
 ```
