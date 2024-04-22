@@ -4,7 +4,7 @@ ATyper is a simple web-based typing test application where users can practice th
 
 ## Features
 
-- **Real-time Typing Test**: Start typing and see your typing speed (in words per minute), accuracy, and time taken in real-time.
+- **Real-time Typing Test**: Start typing and see your typing speed (in WPM), accuracy, and time taken in real-time.
 - **Random Quotes**: Each typing session presents a random quote fetched from the Quotable API.
 - **User-Friendly Interface**: Clean and intuitive interface for a seamless typing experience.
 
