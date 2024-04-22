@@ -11,12 +11,3 @@ ATyper is a simple web-based typing test application where users can practice th
 ## Preview
 
 ![ATyper Preview](public/previews/preview.png)
-
-## Getting Started
-
-To get started with ATyper, simply clone this repository to your local machine and open the `index.html` file in your web browser.
-
-```bash
-git clone https://github.com/apatheticdamn/atyper.git
-cd atyper
-```
