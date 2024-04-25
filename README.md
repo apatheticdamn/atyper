@@ -1,6 +1,6 @@
-# KTyper
+# ATyper
 
-KTyper is a simple web-based typing test application where users can practice their typing skills by typing out provided quotes.
+ATyper is a simple web-based typing test application where users can practice their typing skills by typing out provided quotes.
 
 ## Features
 
@@ -10,4 +10,4 @@ KTyper is a simple web-based typing test application where users can practice th
 
 ## Preview
 
-![KTyper Preview](public/previews/preview.png)
+![ATyper Preview](public/previews/preview.png)
